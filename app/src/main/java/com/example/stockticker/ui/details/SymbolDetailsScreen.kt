@@ -66,7 +66,18 @@ fun SymbolDetailsScreen(
             )
         }
     ) { innerPadding ->
-        if (!uiState.isNetworkAvailable) {
+        if (uiState.isSymbolNotFound) {
+            Box(
+                modifier = Modifier.fillMaxSize().padding(innerPadding),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "No stock information available",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        } else if (!uiState.isNetworkAvailable) {
             Box(
                 modifier = Modifier.fillMaxSize().padding(innerPadding),
                 contentAlignment = Alignment.Center

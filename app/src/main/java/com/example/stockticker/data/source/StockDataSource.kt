@@ -32,6 +32,8 @@ object StockDataSource {
 
     private var stockInfos: List<StockInfo> = emptyList()
 
+    val symbols: List<String> get() = stockInfos.map { it.symbol }
+
 
     // Default false — ConnectivityManager fires onAvailable immediately if network exists.
     private val isNetworkAvailable = AtomicBoolean(false)
