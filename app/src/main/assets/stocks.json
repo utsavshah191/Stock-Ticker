@@ -1,0 +1,152 @@
+[
+  {
+    "symbol": "AAPL",
+    "companyName": "Apple Inc.",
+    "initialPrice": 178.50,
+    "description": "Apple Inc. designs, manufactures, and markets consumer electronics, software, and services. Known for the iPhone, Mac, iPad, and the App Store ecosystem."
+  },
+  {
+    "symbol": "GOOGL",
+    "companyName": "Alphabet Inc.",
+    "initialPrice": 141.20,
+    "description": "Alphabet Inc. is the parent company of Google. It operates in search, advertising, cloud computing, AI research, and hardware products like Pixel and Nest."
+  },
+  {
+    "symbol": "MSFT",
+    "companyName": "Microsoft Corp.",
+    "initialPrice": 378.90,
+    "description": "Microsoft Corp. provides cloud services via Azure, productivity tools like Office 365, gaming through Xbox, and enterprise software solutions worldwide."
+  },
+  {
+    "symbol": "AMZN",
+    "companyName": "Amazon.com Inc.",
+    "initialPrice": 186.40,
+    "description": "Amazon.com Inc. is a global leader in e-commerce, cloud computing through AWS, digital streaming via Prime Video, and artificial intelligence services."
+  },
+  {
+    "symbol": "TSLA",
+    "companyName": "Tesla Inc.",
+    "initialPrice": 245.30,
+    "description": "Tesla Inc. designs and manufactures electric vehicles, energy storage systems, and solar products, with a mission to accelerate the world's transition to sustainable energy."
+  },
+  {
+    "symbol": "META",
+    "companyName": "Meta Platforms Inc.",
+    "initialPrice": 512.80,
+    "description": "Meta Platforms Inc. owns and operates Facebook, Instagram, and WhatsApp. The company is heavily investing in virtual and augmented reality through its Reality Labs division."
+  },
+  {
+    "symbol": "NVDA",
+    "companyName": "NVIDIA Corp.",
+    "initialPrice": 880.00,
+    "description": "NVIDIA Corp. is a world leader in GPU design for gaming, professional visualization, data centers, and AI computing. Its CUDA platform powers most modern AI workloads."
+  },
+  {
+    "symbol": "NFLX",
+    "companyName": "Netflix Inc.",
+    "initialPrice": 634.20,
+    "description": "Netflix Inc. is the world's leading subscription streaming entertainment service, offering a vast library of TV series, films, documentaries, and games globally."
+  },
+  {
+    "symbol": "AMD",
+    "companyName": "Advanced Micro Devices",
+    "initialPrice": 164.30,
+    "description": "Advanced Micro Devices designs high-performance processors and GPUs for PCs, servers, and gaming consoles, competing directly with Intel and NVIDIA."
+  },
+  {
+    "symbol": "INTC",
+    "companyName": "Intel Corp.",
+    "initialPrice": 44.20,
+    "description": "Intel Corp. is a semiconductor giant that designs and manufactures CPUs, chipsets, and integrated circuits powering personal computers and data centers worldwide."
+  },
+  {
+    "symbol": "PYPL",
+    "companyName": "PayPal Holdings Inc.",
+    "initialPrice": 58.40,
+    "description": "PayPal Holdings Inc. is a global digital payments platform enabling individuals and businesses to send and receive payments securely online and via mobile devices."
+  },
+  {
+    "symbol": "ADBE",
+    "companyName": "Adobe Inc.",
+    "initialPrice": 582.10,
+    "description": "Adobe Inc. offers creative software products such as Photoshop, Illustrator, and Premiere Pro, along with cloud-based tools for digital marketing and document management."
+  },
+  {
+    "symbol": "CRM",
+    "companyName": "Salesforce Inc.",
+    "initialPrice": 284.60,
+    "description": "Salesforce Inc. is the world's leading customer relationship management platform, offering cloud-based sales, service, marketing, and analytics solutions for enterprises."
+  },
+  {
+    "symbol": "ORCL",
+    "companyName": "Oracle Corp.",
+    "initialPrice": 127.80,
+    "description": "Oracle Corp. provides enterprise software products and services, including database management, cloud infrastructure, and business applications used across industries."
+  },
+  {
+    "symbol": "IBM",
+    "companyName": "IBM Corp.",
+    "initialPrice": 193.40,
+    "description": "IBM Corp. delivers hybrid cloud, AI, and consulting services. Its offerings include the Watson AI platform, IBM Cloud, and enterprise IT infrastructure solutions."
+  },
+  {
+    "symbol": "QCOM",
+    "companyName": "Qualcomm Inc.",
+    "initialPrice": 168.20,
+    "description": "Qualcomm Inc. is a leader in wireless technology, designing Snapdragon processors used in Android smartphones, automotive systems, and IoT devices globally."
+  },
+  {
+    "symbol": "AVGO",
+    "companyName": "Broadcom Inc.",
+    "initialPrice": 880.00,
+    "description": "Broadcom Inc. designs and supplies a broad range of semiconductor and infrastructure software solutions for data centers, networking, storage, and wireless communications."
+  },
+  {
+    "symbol": "MU",
+    "companyName": "Micron Technology Inc.",
+    "initialPrice": 113.50,
+    "description": "Micron Technology Inc. manufactures DRAM, NAND flash, and NOR flash memory chips essential for smartphones, PCs, servers, and automotive systems."
+  },
+  {
+    "symbol": "UBER",
+    "companyName": "Uber Technologies Inc.",
+    "initialPrice": 76.80,
+    "description": "Uber Technologies Inc. operates a global platform for ride-hailing, food delivery via Uber Eats, and freight logistics, serving millions of users across 70+ countries."
+  },
+  {
+    "symbol": "ABNB",
+    "companyName": "Airbnb Inc.",
+    "initialPrice": 148.90,
+    "description": "Airbnb Inc. operates an online marketplace for short-term homestays and experiences, connecting hosts and travelers in over 220 countries and regions worldwide."
+  },
+  {
+    "symbol": "COIN",
+    "companyName": "Coinbase Global Inc.",
+    "initialPrice": 182.30,
+    "description": "Coinbase Global Inc. is a leading cryptocurrency exchange platform offering trading, custody, and staking services for Bitcoin, Ethereum, and hundreds of digital assets."
+  },
+  {
+    "symbol": "PLTR",
+    "companyName": "Palantir Technologies",
+    "initialPrice": 20.40,
+    "description": "Palantir Technologies builds data analytics platforms for government intelligence agencies and large enterprises, focusing on AI-driven operational decision-making."
+  },
+  {
+    "symbol": "RBLX",
+    "companyName": "Roblox Corp.",
+    "initialPrice": 38.60,
+    "description": "Roblox Corp. operates an online gaming and creation platform that allows users to design, share, and play games. It hosts millions of user-generated experiences."
+  },
+  {
+    "symbol": "HOOD",
+    "companyName": "Robinhood Markets Inc.",
+    "initialPrice": 14.20,
+    "description": "Robinhood Markets Inc. is a commission-free investing app offering retail investors access to stocks, ETFs, options, and cryptocurrency trading from mobile devices."
+  },
+  {
+    "symbol": "SOFI",
+    "companyName": "SoFi Technologies Inc.",
+    "initialPrice": 8.90,
+    "description": "SoFi Technologies Inc. is a digital personal finance company offering student and personal loans, mortgages, investing, banking, and insurance products via its app."
+  }
+]

@@ -1,5 +1,6 @@
 package com.example.stockticker.ui.details
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Card
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -30,17 +32,6 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 
-private val symbolDescriptions = mapOf(
-    "AAPL" to "Apple Inc. designs, manufactures, and markets consumer electronics, software, and services. Known for the iPhone, Mac, iPad, and the App Store ecosystem.",
-    "GOOGL" to "Alphabet Inc. is the parent company of Google. It operates in search, advertising, cloud computing, AI research, and hardware.",
-    "MSFT" to "Microsoft Corp. offers software (Windows, Office), cloud services (Azure), gaming (Xbox), and enterprise solutions worldwide.",
-    "AMZN" to "Amazon.com Inc. is a global leader in e-commerce, cloud computing (AWS), digital streaming, and artificial intelligence.",
-    "TSLA" to "Tesla Inc. designs and manufactures electric vehicles, energy storage systems, and solar products for a sustainable future.",
-    "META" to "Meta Platforms Inc. operates Facebook, Instagram, and WhatsApp. It is heavily investing in virtual and augmented reality.",
-    "NVDA" to "NVIDIA Corp. is a leader in GPU design for gaming, professional visualization, data centers, and AI computing.",
-    "NFLX" to "Netflix Inc. is the world's leading streaming entertainment service with a vast library of TV series, films, and documentaries."
-)
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SymbolDetailsScreen(
@@ -52,7 +43,18 @@ fun SymbolDetailsScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = uiState.symbol, fontWeight = FontWeight.Bold) },
+                title = {
+                    Column {
+                        Text(text = uiState.symbol, fontWeight = FontWeight.Bold)
+                        if (uiState.companyName.isNotEmpty()) {
+                            Text(
+                                text = uiState.companyName,
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
                         Icon(
@@ -64,28 +66,37 @@ fun SymbolDetailsScreen(
             )
         }
     ) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .padding(16.dp)
-        ) {
-            PriceCard(uiState = uiState)
+        if (uiState.isLoading) {
+            Box(
+                modifier = Modifier.fillMaxSize().padding(innerPadding),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
+            }
+        } else {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+                    .padding(16.dp)
+            ) {
+                PriceCard(uiState = uiState)
 
-            Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(24.dp))
 
-            Text(
-                text = "About",
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                text = symbolDescriptions[uiState.symbol] ?: "No description available.",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                lineHeight = 22.sp
-            )
+                Text(
+                    text = "About",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    text = uiState.description,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    lineHeight = 22.sp
+                )
+            }
         }
     }
 }
