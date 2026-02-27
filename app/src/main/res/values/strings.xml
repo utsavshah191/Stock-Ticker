@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Stock Ticker</string>
+
+    <!-- Splash -->
+    <string name="splash_title">Stock Ticker</string>
+    <string name="splash_subtitle">Live Price Tracking</string>
+
+    <!-- Feed -->
+    <string name="feed_connected">Connected</string>
+    <string name="feed_disconnected">Disconnected</string>
+    <string name="feed_start">Start</string>
+    <string name="feed_stop">Stop</string>
+    <string name="feed_no_internet">No internet connection</string>
+    <string name="feed_no_data">No data found</string>
+
+    <!-- Details -->
+    <string name="details_no_stock">No stock information available</string>
+    <string name="details_about">About</string>
+    <string name="details_current_price">Current Price</string>
+    <string name="details_no_internet">No internet connection</string>
+    <string name="details_back">Back Arrow</string>
 </resources>

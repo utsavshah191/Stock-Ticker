@@ -24,13 +24,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import com.example.stockticker.ui.theme.PriceDown
-import com.example.stockticker.ui.theme.PriceUp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.stockticker.R
+import com.example.stockticker.ui.theme.PriceDown
+import com.example.stockticker.ui.theme.PriceUp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -59,7 +61,7 @@ fun SymbolDetailsScreen(
                     IconButton(onClick = onBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back Arrow"
+                            contentDescription = stringResource(id = R.string.details_back)
                         )
                     }
                 }
@@ -72,7 +74,7 @@ fun SymbolDetailsScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "No stock information available",
+                    text = stringResource(id = R.string.details_no_stock),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -83,7 +85,7 @@ fun SymbolDetailsScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "No internet connection",
+                    text = stringResource(id = R.string.details_no_internet),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -107,7 +109,7 @@ fun SymbolDetailsScreen(
                 Spacer(modifier = Modifier.height(24.dp))
 
                 Text(
-                    text = "About",
+                    text = stringResource(id = R.string.details_about),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
@@ -132,7 +134,7 @@ private fun PriceCard(uiState: DetailsUiState) {
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(
-                text = "Current Price",
+                text = stringResource(id = R.string.details_current_price),
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )

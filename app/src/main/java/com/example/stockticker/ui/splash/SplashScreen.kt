@@ -14,13 +14,14 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import com.example.stockticker.ui.theme.SplashBackground
-import com.example.stockticker.ui.theme.SplashSubtitle
-import com.example.stockticker.ui.theme.SplashTitle
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.stockticker.R
+import com.example.stockticker.ui.theme.SplashBackground
+import com.example.stockticker.ui.theme.SplashSubtitle
+import com.example.stockticker.ui.theme.SplashTitle
 import kotlinx.coroutines.delay
 
 @Composable
@@ -46,7 +47,7 @@ fun SplashScreen(onSplashFinished: () -> Unit) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Stock Ticker",
+            text = stringResource(id = R.string.splash_title),
             color = SplashTitle,
             fontSize = 32.sp,
             fontWeight = FontWeight.Bold
@@ -55,7 +56,7 @@ fun SplashScreen(onSplashFinished: () -> Unit) {
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = "Live Price Tracking",
+            text = stringResource(id = R.string.splash_subtitle),
             color = SplashSubtitle,
             fontSize = 14.sp
         )

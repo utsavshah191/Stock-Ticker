@@ -24,11 +24,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.stockticker.R
 import com.example.stockticker.data.model.StockPrice
 import com.example.stockticker.ui.theme.PriceDown
 import com.example.stockticker.ui.theme.PriceUp
@@ -56,14 +58,24 @@ fun FeedScreen(
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
-                            text = if (uiState.isConnected) "Connected" else "Disconnected",
+                            text = if (uiState.isConnected) {
+                                stringResource(id = R.string.feed_connected)
+                            } else {
+                                stringResource(id = R.string.feed_disconnected)
+                            },
                             style = MaterialTheme.typography.bodyMedium
                         )
                     }
                 },
                 actions = {
                     TextButton(onClick = { viewModel.toggleFeed() }) {
-                        Text(text = if (uiState.isFeedActive) "Stop" else "Start")
+                        Text(
+                            text = if (uiState.isFeedActive) {
+                                stringResource(id = R.string.feed_stop)
+                            } else {
+                                stringResource(id = R.string.feed_start)
+                            }
+                        )
                     }
                 }
             )
@@ -77,7 +89,20 @@ fun FeedScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "No internet connection",
+                    text = stringResource(id = R.string.feed_no_internet),
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        } else if (uiState.stocks.isEmpty()) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = stringResource(id = R.string.feed_no_data),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
