@@ -1,6 +1,5 @@
 package com.example.stockticker.ui.feed
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -22,19 +21,17 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import com.example.stockticker.ui.theme.PriceDown
-import com.example.stockticker.ui.theme.PriceUp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.stockticker.data.model.StockPrice
-import org.jetbrains.annotations.Debug
+import com.example.stockticker.ui.theme.PriceDown
+import com.example.stockticker.ui.theme.PriceUp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -72,14 +69,29 @@ fun FeedScreen(
             )
         }
     ) { innerPadding ->
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-        ) {
-            items(uiState.stocks, key = { it.symbol }) { stock ->
-                StockRow(stock = stock, onClick = { onSymbolClick(stock.symbol) })
-                HorizontalDivider()
+        if (!uiState.isNetworkAvailable) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "No internet connection",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        } else {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+            ) {
+                items(uiState.stocks, key = { it.symbol }) { stock ->
+                    StockRow(stock = stock, onClick = { onSymbolClick(stock.symbol) })
+                    HorizontalDivider()
+                }
             }
         }
     }

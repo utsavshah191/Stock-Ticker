@@ -16,7 +16,8 @@ data class DetailsUiState(
     val description: String = "",
     val price: Double = 0.0,
     val previousPrice: Double = 0.0,
-    val isLoading: Boolean = true
+    val isLoading: Boolean = true,
+    val isNetworkAvailable: Boolean = false
 )
 
 class DetailsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
@@ -27,6 +28,11 @@ class DetailsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     val uiState: StateFlow<DetailsUiState> = _uiState.asStateFlow()
 
     init {
+        viewModelScope.launch {
+            StockRepository.isNetworkAvailable.collect { available ->
+                _uiState.update { it.copy(isNetworkAvailable = available) }
+            }
+        }
         viewModelScope.launch {
             StockRepository.prices.collect { stocks ->
                 val stock = stocks.find { it.symbol == symbol } ?: return@collect

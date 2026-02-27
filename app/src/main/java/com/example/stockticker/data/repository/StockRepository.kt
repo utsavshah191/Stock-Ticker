@@ -11,6 +11,8 @@ object StockRepository {
 
     val prices: SharedFlow<List<StockPrice>> = StockDataSource.priceFlow
 
+    val isNetworkAvailable: StateFlow<Boolean> = StockDataSource.networkAvailable
+
     private val _isFeedActive = MutableStateFlow(false)
     val isFeedActive: StateFlow<Boolean> = _isFeedActive.asStateFlow()
 

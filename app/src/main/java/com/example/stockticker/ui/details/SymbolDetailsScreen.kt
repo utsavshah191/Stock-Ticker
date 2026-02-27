@@ -66,7 +66,18 @@ fun SymbolDetailsScreen(
             )
         }
     ) { innerPadding ->
-        if (uiState.isLoading) {
+        if (!uiState.isNetworkAvailable) {
+            Box(
+                modifier = Modifier.fillMaxSize().padding(innerPadding),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "No internet connection",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        } else if (uiState.isLoading) {
             Box(
                 modifier = Modifier.fillMaxSize().padding(innerPadding),
                 contentAlignment = Alignment.Center

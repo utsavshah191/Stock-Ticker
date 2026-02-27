@@ -14,7 +14,8 @@ import kotlinx.coroutines.launch
 data class FeedUiState(
     val stocks: List<StockPrice> = emptyList(),
     val isConnected: Boolean = false,
-    val isFeedActive: Boolean = false
+    val isFeedActive: Boolean = false,
+    val isNetworkAvailable: Boolean = false
 )
 
 class FeedViewModel : ViewModel() {
@@ -26,6 +27,16 @@ class FeedViewModel : ViewModel() {
 
     init {
         startFeed()
+        viewModelScope.launch {
+            StockRepository.isNetworkAvailable.collect { available ->
+                _uiState.update { state ->
+                    state.copy(
+                        isNetworkAvailable = available,
+                        isConnected = available && state.isFeedActive
+                    )
+                }
+            }
+        }
     }
 
     fun toggleFeed() {
@@ -35,7 +46,7 @@ class FeedViewModel : ViewModel() {
     private fun startFeed() {
         StockRepository.setFeedActive(true)
         feedJob = viewModelScope.launch {
-            _uiState.update { it.copy(isFeedActive = true, isConnected = true) }
+            _uiState.update { it.copy(isFeedActive = true, isConnected = StockRepository.isNetworkAvailable.value) }
             StockRepository.prices.collect { stocks ->
                 _uiState.update { state ->
                     state.copy(stocks = stocks.sortedByDescending { it.price })
