@@ -45,6 +45,11 @@ Stock Ticker is an Android app built with **Jetpack Compose**, **MVVM**, and a *
   - If the symbol is unknown, the details screen shows **“No stock information available”**.
 
 
+- **Apk Link**
+    Url : https://drive.google.com/file/d/1DtCSChiddf1cE1KRnQbW5_sQiKi7D4UH/view?usp=sharing
+- 
+
+
 
 
 
